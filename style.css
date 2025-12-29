@@ -23,6 +23,9 @@ button, a{
 
 body {
     background: #06171e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
 
 header {
     background: #09212a;
@@ -40,26 +43,56 @@ main {
     justify-content: center;
     align-items: center;
 
+    h1 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 80px;
+        font-weight: bold;
+    }
     p{
         color: white;
     }
 }
 
 footer {
-    height: 80px;
+    height: fit-content;
     width: 100%;
-    background: #06171e;
-    position: fixed;
-    bottom: 0;
+    background: #09212a;
+    
+    flex: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-self: center;
     align-self: center;
+    border-radius: 40% 40% 0 0;
+    padding: 48px 0 48px 0;
+
     
+
     .img-position {
         justify-self: center;
         align-self: center;
+
+        .legal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            img {
+                width: 240px;
+                
+            }
+        
+        p {
+            font-size: 32px;
+            color: rgba(98, 123, 132, 1);
+        }
+        }
+        
+
     }
 }
 
