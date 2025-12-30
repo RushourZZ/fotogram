@@ -50,6 +50,14 @@ main {
         font-size: 80px;
         font-weight: bold;
     }
+
+    img {
+        border-radius: 11%;
+    }
+    img:hover {
+        background-color: teal;
+    }
+
     p{
         color: white;
     }
