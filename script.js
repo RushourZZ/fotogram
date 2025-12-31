@@ -39,6 +39,6 @@ function closeDialog() {
 // *Sobald das Popup geöffnet ist soll anhand des Indexes das richtige Bild angezeigt werden..
 function showPictures (){
     if(openDialog == true){
-        const openPicture = 
+        
     }
 }
