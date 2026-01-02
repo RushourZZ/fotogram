@@ -39,12 +39,16 @@ function closeDialog() {
 // ! Diese Funktion leert den Dialog Bereich und bereitet diesen auf innerHtml vor
 
 function render() {
+    
+    setImageName();
+    setPictureName();
+    setNumber();
+}
+
+function setImageName(){
     let pictureRef = document.getElementById("bigPicture");
 
     pictureRef.src = popupImages[currentIndex];
-
-    setPictureName();
-    setNumber();
 }
 
 function setPictureName() {
@@ -74,5 +78,3 @@ function setNumber() {
     let numberRef = document.getElementById("navNumbering");
     numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
 }
-
-
