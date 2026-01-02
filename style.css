@@ -168,8 +168,15 @@ body {
 
     dialog {
         margin: auto;
-        width: 300px;
-        border-radius: 15px;
+        width: fit-content;
+        border-radius: 5%;
+        border: none;
+        color: white;
+
+        img {
+            width: 600px;
+            height: auto;
+        }
 
 
 
