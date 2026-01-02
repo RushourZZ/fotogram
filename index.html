@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Fotogram</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     </head>
 
     <body>
         <header>
-            <div class="content">
+            <div class="content position-of-logo">
                 <img src="./img/fotogram-logo.svg" alt="Logo von Fotogram" />
             </div>
         </header>
@@ -81,6 +82,7 @@
                         />
                     </div>
                 </div>
+            </section>
 
                 <!-- TODO Hier soll das Dialog Fenster angezeigt werden -->
                 <dialog id="openPicture">
@@ -89,7 +91,7 @@
                         <button onclick="closeDialog()"><img src="./img/close-icon.png" alt=""></button>
                     </header>
                     <main>
-                        <img id="bigPicture" src="./img/Berge.jpg" alt="" />
+                        <img class="mainPicure" id="bigPicture" src="./img/Berge.jpg" alt="" />
                     </main>
                     <footer>
                         <button onclick="previous()"><img src="./img/Arrow-Left.png" alt="Pfeil für zurück"></button>
