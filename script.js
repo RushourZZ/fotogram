@@ -20,9 +20,12 @@ function openDialog(index) {
     const dialogRef = document.getElementById("openPicture");
     dialogRef.showModal();
     currentIndex = index;
+    // onkeydown = "event.code === 'Enter' && openDialog() ";
     render();
-
     counter();
+
+    
+
 }
 // * Der Zähler der Bilder wird aus dem HTML picture Number übernommen -> wurde in openDialog definiert.
 function counter() {
@@ -78,3 +81,9 @@ function setNumber() {
     let numberRef = document.getElementById("navNumbering");
     numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
 }
+
+
+
+
+
+
