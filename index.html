@@ -19,63 +19,73 @@
             <section class="content">
                 <div class="position-of-header-and-pictures">
                     <h1 aria-label="title">Your personal photo album</h1>
-                    <div class="picture-show">
-                        <img tabindex="0"
+                    <div class="picture-show" id="gallery">
+                        <img tabindex="1"
+                        data-index="0"
                             onclick="openDialog(0)"
                             src="./img/Berge.jpg"
                             alt="Bild von den Bergen"
                         />
-                        <img tabindex="0"
+                        <img tabindex="2"
+                        data-index="1"
                             onclick="openDialog(1)"
                             src="./img/cyberpunk.png"
                             alt="Bild von einer düsteren Stadt"
                         />
-                        <img tabindex="0"
+                        <img tabindex="3" data-index="2"
                             onclick="openDialog(2)"
                             src="./img/ente.png"
                             alt="Bild von einer Ente im Wasser"
                         />
-                        <img tabindex="0"
+                        <img tabindex="4"
+                        data-index="3"
                             onclick="openDialog(3)"
                             src="./img/fischer.png"
                             alt="Bild von einem Fischer auf dem Meer"
                         />
-                        <img tabindex="0"
+                        <img tabindex="5"
+                        data-index="4"
                             onclick="openDialog(4)"
                             src="./img/himmel.png"
                             alt="Bild vom Himmel in den Bergen"
                         />
-                        <img tabindex="0"
+                        <img tabindex="6"
+                        data-index="5"
                             onclick="openDialog(5)"
                             src="./img/kitten.png"
                             alt="Bild von einem Raubkatzenbaby"
                         />
-                        <img tabindex="0"
+                        <img tabindex="7"
+                        data-index="6"
                             onclick="openDialog(6)"
                             src="./img/schnee.png"
                             alt="Bild von einem verschneiten Baum"
                         />
-                        <img tabindex="0"
+                        <img tabindex="8"
+                        data-index="7"
                             onclick="openDialog(7)"
                             src="./img/see.png"
                             alt="Bild von einem See aus dem Tal heraus mit bergiger Landschaft"
                         />
-                        <img tabindex="0"
+                        <img tabindex="9"
+                        data-index="8"
                             onclick="openDialog(8)"
                             src="./img/vogel-auf-ast.png"
                             alt="Bild von einem kleinen Vogel auf einem Ast"
                         />
-                        <img tabindex="0"
+                        <img tabindex="10"
+                        data-index="9"
                             onclick="openDialog(9)"
                             src="./img/vogel-auf-stein.png"
                             alt="Bild von einem Vogel auf Felsen"
                         />
-                        <img tabindex="0"
+                        <img tabindex="11"
+                        data-index="10"
                             onclick="openDialog(10)"
                             src="./img/weltraum.png"
                             alt="Bild von der Erdkugel aus dem Weltraum"
                         />
-                        <img tabindex="0"
+                        <img tabindex="12" data-index="11"
                             onclick="openDialog(11)"
                             src="./img/wolken.png"
                             alt="Bild von dunklen Regenwolken"
@@ -88,15 +98,15 @@
                 <dialog closedby="any" id="openPicture">
                     <header>
                         <span id="fileName"></span>
-                        <button tabindex="0"  onclick="closeDialog()"><img src="./img/close-icon.png" alt="Button zum schließen des Fensters"></button>
+                        <button onclick="closeDialog()"  ><img src="./img/close-icon.png" alt="Button zum schließen des Fensters"></button>
                     </header>
                     <main>
                         <img class="mainPicure" id="bigPicture" src="./img/Berge.jpg" alt="" />
                     </main>
                     <footer>
-                        <button tabindex="0" onclick="previous()"><img src="./img/Arrow-Left.png" alt="Pfeil für zurück"></button>
+                        <button onclick="previous()" id="previousClick"><img src="./img/Arrow-Left.png" alt="Pfeil für zurück"></button>
                         <span id="navNumbering"></span>
-                        <button tabindex="0"
+                        <button id="nextClick"
                             onclick="next()"><img src="./img/Arrow-Right.png" alt="Pfeil für weiter">
                         </button>
                     </footer>

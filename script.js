@@ -23,9 +23,6 @@ function openDialog(index) {
     // onkeydown = "event.code === 'Enter' && openDialog() ";
     render();
     counter();
-
-    
-
 }
 // * Der Zähler der Bilder wird aus dem HTML picture Number übernommen -> wurde in openDialog definiert.
 function counter() {
@@ -42,25 +39,24 @@ function closeDialog() {
 // ! Diese Funktion leert den Dialog Bereich und bereitet diesen auf innerHtml vor
 
 function render() {
-    
     setImageName();
     setPictureName();
     setNumber();
 }
 
-function setImageName(){
+function setImageName() {
     let pictureRef = document.getElementById("bigPicture");
 
     pictureRef.src = popupImages[currentIndex];
 }
-
+// * Bildname
 function setPictureName() {
     let nameRef = document.getElementById("fileName");
 
     let imageName = popupImages[currentIndex].replace("./img/", "");
     nameRef.innerText = imageName;
 }
-
+//  * Weiter Button
 function next() {
     currentIndex++;
     if (currentIndex >= popupImages.length) {
@@ -68,22 +64,75 @@ function next() {
     }
     render();
 }
-
+//* Zurück button
 function previous() {
     currentIndex--;
     if (currentIndex < 0) {
         currentIndex = popupImages.length - 1;
     }
+
     render();
 }
 
+// *Zähler verändern
 function setNumber() {
     let numberRef = document.getElementById("navNumbering");
     numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
 }
 
+// * Hier weiterarbeiten für Keyboard Steuerung
 
+document.addEventListener("keydown", function (event) {
+  
+  if (event.key === "Enter") {
+    event.preventDefault();
 
+    
+    const open = document.getElementById("gallery");
+    if (open) {
+        open.click();
+        
+    }
+  }
+  
+  
+    if (event.key === "ArrowRight") {
+        event.preventDefault(); // verhindert nur Fokus-Verschiebung
 
+        const dialog = document.getElementById("openPicture");
+        if (dialog && dialog.open) {
+            // nur wenn mein Popup offen ist
+            const nextBtn = document.getElementById("nextClick");
+            if (nextBtn) {
+                nextBtn.click(); // ruft mein onclick="next()" auf
+            }
+        }
+    } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
 
+        const dialog = document.getElementById("openPicture");
+        if (dialog && dialog.open) {
+            const preButton = document.getElementById("previousClick");
+            if (preButton) {
+                preButton.click();
+            }
+        }
+    }
+});
 
+document.addEventListener("keydown", function (event) {
+    // Nur reagieren, wenn Enter gedrückt wurde
+    if (event.key === "Enter") {
+    
+        const active = document.activeElement; // aktuelles fokussiertes Element
+
+        // Prüfen, ob das fokussierte Element ein Bild aus der Galerie ist
+        if (active && active.matches(".picture-show img")) {
+            const indexAttr = active.getAttribute("data-index");
+            if (indexAttr !== null) {
+                const index = parseInt(indexAttr, 10);
+                openDialog(index); // öffnet Dialog mit passendem Bild
+            }
+        }
+    }
+});
