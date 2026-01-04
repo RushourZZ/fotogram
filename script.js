@@ -15,28 +15,21 @@ const popupImages = [
 
 let currentIndex = 0;
 
-// * Öffnet den Dialog (Popup)
+// * open the dialog (popup)
 function openDialog(index) {
     const dialogRef = document.getElementById("openPicture");
     dialogRef.showModal();
+    document.body.style.overflow = "hidden";
     currentIndex = index;
-    // onkeydown = "event.code === 'Enter' && openDialog() ";
     render();
-    counter();
-}
-// * Der Zähler der Bilder wird aus dem HTML picture Number übernommen -> wurde in openDialog definiert.
-function counter() {
-    console.log(currentIndex);
 }
 
-// * schließ das Popup
+// * close the Popup
 function closeDialog() {
     const dialogRef = document.getElementById("openPicture");
     dialogRef.close();
+    document.body.style.overflow = "";
 }
-// *Sobald das Popup geöffnet ist soll anhand des Indexes das richtige Bild angezeigt werden..
-
-// ! Diese Funktion leert den Dialog Bereich und bereitet diesen auf innerHtml vor
 
 function render() {
     setImageName();
@@ -49,14 +42,14 @@ function setImageName() {
 
     pictureRef.src = popupImages[currentIndex];
 }
-// * Bildname
+// * picture name
 function setPictureName() {
     let nameRef = document.getElementById("fileName");
 
     let imageName = popupImages[currentIndex].replace("./img/", "");
     nameRef.innerText = imageName;
 }
-//  * Weiter Button
+//  * next button
 function next() {
     currentIndex++;
     if (currentIndex >= popupImages.length) {
@@ -64,7 +57,7 @@ function next() {
     }
     render();
 }
-//* Zurück button
+//* back button
 function previous() {
     currentIndex--;
     if (currentIndex < 0) {
@@ -74,40 +67,42 @@ function previous() {
     render();
 }
 
-// *Zähler verändern
+// *change counter
 function setNumber() {
     let numberRef = document.getElementById("navNumbering");
     numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
 }
 
-// * Hier weiterarbeiten für Keyboard Steuerung
+// * keyboard controll
 
-document.addEventListener("keydown", function (event) {
-  
-  if (event.key === "Enter") {
-    event.preventDefault();
+function handleEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
 
-    
-    const open = document.getElementById("gallery");
-    if (open) {
-        open.click();
-        
+        const open = document.getElementById("gallery");
+        if (open) {
+            open.click();
+        }
     }
-  }
-  
-  
+}
+
+function handleArrowRight(event) {
     if (event.key === "ArrowRight") {
-        event.preventDefault(); // verhindert nur Fokus-Verschiebung
+        event.preventDefault(); 
 
         const dialog = document.getElementById("openPicture");
         if (dialog && dialog.open) {
-            // nur wenn mein Popup offen ist
+            
             const nextBtn = document.getElementById("nextClick");
             if (nextBtn) {
-                nextBtn.click(); // ruft mein onclick="next()" auf
+                nextBtn.click(); 
             }
         }
-    } else if (event.key === "ArrowLeft") {
+    }
+}
+
+function handleArrowLeft(event) {
+    if (event.key === "ArrowLeft") {
         event.preventDefault();
 
         const dialog = document.getElementById("openPicture");
@@ -118,20 +113,25 @@ document.addEventListener("keydown", function (event) {
             }
         }
     }
+}
+
+document.addEventListener("keydown", function (event) {
+    handleEnter(event);
+    handleArrowRight(event);
+    handleArrowLeft(event);
 });
 
 document.addEventListener("keydown", function (event) {
-    // Nur reagieren, wenn Enter gedrückt wurde
-    if (event.key === "Enter") {
     
-        const active = document.activeElement; // aktuelles fokussiertes Element
+    if (event.key === "Enter") {
+        const active = document.activeElement; 
 
-        // Prüfen, ob das fokussierte Element ein Bild aus der Galerie ist
+     
         if (active && active.matches(".picture-show img")) {
             const indexAttr = active.getAttribute("data-index");
             if (indexAttr !== null) {
                 const index = parseInt(indexAttr, 10);
-                openDialog(index); // öffnet Dialog mit passendem Bild
+                openDialog(index); // 
             }
         }
     }
