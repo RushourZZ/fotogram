@@ -11,7 +11,6 @@
     font-family: "Figtree";
     src: url(./fonts/Figtree-VariableFont_wght.ttf);
 }
-
 button,
 a {
     color: inherit;
@@ -19,22 +18,17 @@ a {
     background: inherit;
     border: inherit;
 }
-
 .content {
     width: 100%;
     max-width: 1440px;
     height: fit-content;
 }
-
 body {
     background: #06171e;
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
     font-family: "Figtree";
-    
-    
-
     header {
         background: #09212a;
         width: 100%;
@@ -42,28 +36,25 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-
         .position-of-logo {
             width: 100%;
             display: flex;
             justify-content: start;
         }
     }
-
     main {
         flex: 1;
         display: flex;
         width: 100%;
         justify-content: center;
         align-items: center;
-
+        padding: 0 32px;
         .position-of-header-and-pictures {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             justify-self: center;
-
             h1 {
                 display: flex;
                 justify-content: center;
@@ -72,13 +63,11 @@ body {
                 font-weight: bold;
                 margin-bottom: 32px;
             }
-
             .picture-show {
                 display: flex;
-                flex-wrap: wrap; /*  allow items to wrap  */
-                justify-content: center; /*  horizontally center items  */
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 24px;
-
                 img {
                     width: 150px;
                     height: 150px;
@@ -91,19 +80,16 @@ body {
                 img:hover {
                     border-color: aquamarine;
                 }
-
                 img:active {
                     border-color: #f64e85;
                 }
             }
         }
     }
-
     footer {
         height: fit-content;
         width: 100%;
         background: #09212a;
-
         flex: 0;
         display: flex;
         justify-content: center;
@@ -112,11 +98,9 @@ body {
         align-self: center;
         border-radius: 40% 40% 0 0;
         padding: 16px 0 32px 0;
-
         .img-position {
             justify-self: center;
             align-self: center;
-
             .legal {
                 display: flex;
                 flex-direction: column;
@@ -126,7 +110,6 @@ body {
                 img {
                     width: 240px;
                 }
-
                 h2 {
                     font-size: 24px;
                     color: rgba(98, 123, 132, 1);
@@ -141,15 +124,11 @@ body {
         border-radius: 5%;
         border: none;
         color: white;
-        
-        
-
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 32px;
-
             button {
                 width: 30px;
                 height: 30px;
@@ -158,12 +137,10 @@ body {
                 align-items: center;
                 cursor: pointer;
             }
-
             button:hover {
                 border-radius: 50%;
                 background-color: rgba(255, 255, 255, 10%);
             }
-
             button:active {
                 background-color: rgba(255, 255, 255, 30%);
             }
@@ -175,7 +152,6 @@ body {
             img {
                 width: 80%;
                 height: 500px;
-
                 object-fit: cover;
                 object-position: center;
                 background: rgb(9, 33, 42);
@@ -198,11 +174,9 @@ body {
                 background: rgba(253, 91, 79, 10%);
                 border-radius: 100%;
                 cursor: pointer;
-                
             }
             img:hover {
                 background: rgba(253, 91, 79, 20%);
-
                 border-radius: 50%;
             }
         }
@@ -214,8 +188,6 @@ dialog::backdrop {
     opacity: 0.75;
 }
 
-
-
 @media (max-width: 1000px) {
     body {
         header {
@@ -226,12 +198,9 @@ dialog::backdrop {
         main {
             .position-of-header-and-pictures {
                 padding: 0 8px;
-
                 h1 {
-                    margin: 30px 16px 16px 16px;
                     font-size: 48px;
                 }
-
                 .picture-show {
                     gap: 8px;
                     img {
@@ -245,13 +214,11 @@ dialog::backdrop {
 
         footer {
             border-radius: 20% 20% 0 0;
-
             .img-position {
                 .legal {
                     img {
                         width: 112px;
                     }
-
                     p {
                         font-size: 16px;
                     }
@@ -263,22 +230,15 @@ dialog::backdrop {
 
 @media (max-width: 650px) {
     body {
-        
         main {
-            
-
             .position-of-header-and-pictures {
-                
-
                 div {
                     display: flex;
                     align-items: center;
                     h1 {
                         color: white;
                         font-size: 20px;
-
                         margin-bottom: 32px;
-                        
                     }
                 }
                 .picture-show {
@@ -289,14 +249,12 @@ dialog::backdrop {
 
         footer {
             padding: 16px 0 16px 0;
-
             .img-position {
                 .legal {
                     gap: 8px;
                     img {
                         width: 120px;
                     }
-
                     h2 {
                         font-size: 16px;
                     }
@@ -308,20 +266,15 @@ dialog::backdrop {
             min-height: 100dvh;
             width: 100%;
             background: #09212a;
-
             main {
                 justify-content: center;
                 flex: 1;
                 height: 100%;
-
                 img {
-                    /* padding: 0 32px; */
                     object-fit: cover;
-
                     height: 80dvh;
                 }
             }
-
             footer {
                 flex: 0;
                 position: absolute;

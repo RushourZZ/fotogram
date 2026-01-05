@@ -15,7 +15,7 @@ const popupImages = [
 
 let currentIndex = 0;
 
-// * open the dialog (popup)
+//#region open/close Dialog
 function openDialog(index) {
     const dialogRef = document.getElementById("openPicture");
     dialogRef.showModal();
@@ -24,13 +24,14 @@ function openDialog(index) {
     render();
 }
 
-// * close the Popup
 function closeDialog() {
     const dialogRef = document.getElementById("openPicture");
     dialogRef.close();
     document.body.style.overflow = "";
 }
+//#endregion
 
+//#region render
 function render() {
     setImageName();
     setPictureName();
@@ -39,17 +40,22 @@ function render() {
 
 function setImageName() {
     let pictureRef = document.getElementById("bigPicture");
-
     pictureRef.src = popupImages[currentIndex];
 }
-// * picture name
+
 function setPictureName() {
     let nameRef = document.getElementById("fileName");
-
     let imageName = popupImages[currentIndex].replace("./img/", "");
     nameRef.innerText = imageName;
 }
-//  * next button
+
+function setNumber() {
+    let numberRef = document.getElementById("navNumbering");
+    numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
+}
+//#endregion
+
+//#region buttons next/forward
 function next() {
     currentIndex++;
     if (currentIndex >= popupImages.length) {
@@ -57,28 +63,20 @@ function next() {
     }
     render();
 }
-//* back button
+
 function previous() {
     currentIndex--;
     if (currentIndex < 0) {
         currentIndex = popupImages.length - 1;
     }
-
     render();
 }
+//#endregion
 
-// *change counter
-function setNumber() {
-    let numberRef = document.getElementById("navNumbering");
-    numberRef.innerText = currentIndex + 1 + "/" + popupImages.length;
-}
-
-// * keyboard controll
-
+//#region keyboard controll
 function handleEnter(event) {
     if (event.key === "Enter") {
         event.preventDefault();
-
         const open = document.getElementById("gallery");
         if (open) {
             open.click();
@@ -89,7 +87,6 @@ function handleEnter(event) {
 function handleArrowRight(event) {
     if (event.key === "ArrowRight") {
         event.preventDefault(); 
-
         const dialog = document.getElementById("openPicture");
         if (dialog && dialog.open) {
             
@@ -104,7 +101,6 @@ function handleArrowRight(event) {
 function handleArrowLeft(event) {
     if (event.key === "ArrowLeft") {
         event.preventDefault();
-
         const dialog = document.getElementById("openPicture");
         if (dialog && dialog.open) {
             const preButton = document.getElementById("previousClick");
@@ -122,17 +118,15 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-    
     if (event.key === "Enter") {
-        const active = document.activeElement; 
-
-     
+        const active = document.activeElement;   
         if (active && active.matches(".picture-show img")) {
             const indexAttr = active.getAttribute("data-index");
             if (indexAttr !== null) {
                 const index = parseInt(indexAttr, 10);
-                openDialog(index); // 
+                openDialog(index);  
             }
         }
     }
 });
+//#endregion
