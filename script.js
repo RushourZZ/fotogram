@@ -1,15 +1,15 @@
 const popupImages = [
-    "./img/Berge.jpg",
-    "./img/cyberpunk.jpg",
-    "./img/ente.jpg",
-    "./img/fischer.jpg",
-    "./img/himmel.jpg",
-    "./img/kitten.jpg",
-    "./img/schnee.jpg",
-    "./img/see.jpg",
-    "./img/vogel-auf-ast.jpg",
-    "./img/vogel-auf-stein.jpg",
-    "./img/weltraum.jpg",
+    "./img/Berge.png",
+    "./img/cyberpunk.png",
+    "./img/ente.png",
+    "./img/fischer.png",
+    "./img/himmel.png",
+    "./img/kitten.png",
+    "./img/schnee.png",
+    "./img/see.png",
+    "./img/vogel-auf-ast.png",
+    "./img/vogel-auf-stein.png",
+    "./img/weltraum.png",
     "./img/wolken.png",
 ];
 
@@ -45,7 +45,7 @@ function setImageName() {
 
 function setPictureName() {
     let nameRef = document.getElementById("fileName");
-    let imageName = "Picturename:" + " " + popupImages[currentIndex].replace("./img/", "").replace(".jpg", "").replace(".png", "");
+    let imageName = "Name:" + " " + popupImages[currentIndex].replace("./img/", "").replace(".png", "").replace(".png", "");
     nameRef.innerText = imageName;
 }
 
