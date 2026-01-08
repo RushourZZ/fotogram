@@ -174,7 +174,7 @@ body {
                 height: auto;
                 padding: 12px;
                 background: rgba(253, 91, 79, 10%);
-                border-radius: 100%;
+                border-radius: 50%;
                 cursor: pointer;
             }
             img:hover {
